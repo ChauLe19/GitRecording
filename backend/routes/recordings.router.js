@@ -7,10 +7,7 @@ var fs = require('fs')
 // import path from 'path'
 var serialize = require('node-serialize')
 // const DIRECTORY = 'recordings';
-function add(a,b){
-  return a+b;
-}
-con
+
 const git = simpleGit("../../JSTutorial");
 
 /* GET users listing. */
