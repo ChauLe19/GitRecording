@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RecordingComponent } from './recording/recording.component';
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,16 @@ import { RecordingComponent } from './recording/recording.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HighlightModule
   ],
-  providers: [],
+  providers: [{
+    provide: HIGHLIGHT_OPTIONS,
+    useValue: {
+      fullLibraryLoader: () => import('highlight.js'),
+    }
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
