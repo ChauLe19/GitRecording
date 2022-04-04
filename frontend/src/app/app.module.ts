@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RecordingComponent } from './recording/recording.component';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HighlightModule
+    HighlightModule,
+    HttpClientModule
   ],
   providers: [{
     provide: HIGHLIGHT_OPTIONS,
