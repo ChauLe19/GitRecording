@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const simpleGit = require("simple-git");
+const ms = require("mediaserver")
 var path = require("path");
 const recordingsController = require("../controllers/recordings.controller")
 var fs = require('fs')
@@ -34,9 +35,10 @@ router.get("/play/:recording", (req, res, next) => { // don't do this in project
     res.send("Done")
 })
 
-// router.get("/api/audio/:file", (req, res) => {
-//   ms.pipe(req, res, "./recordings/JSTutorial.wav");
-// })
+router.get("/audio/:repo", (req, res) => {
+    console.log(req.params.file);
+    ms.pipe(req, res, "../../JSTutorial/JSTutorial.wav");
+})
 
 
 router.get("/checkout/:repo/:file/:commithash", recordingsController.getFileWithCommitID)

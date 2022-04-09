@@ -1,1 +1,9 @@
 <pre><code [highlight]="code" [languages]="['typescript']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code></pre>
+<!-- <ngx-audio-player src="http://localhost:3000/recordings/audio/repo"></ngx-audio-player> -->
+<vm-player autoplay controls [currentTime]="currentTime" (vmCurrentTimeChange)="onTimeUpdate($event)">
+    <vm-audio cross-origin>
+
+        <source data-src="http://localhost:3000/recordings/audio/repo" type="audio/wav" />
+    </vm-audio>
+
+</vm-player>

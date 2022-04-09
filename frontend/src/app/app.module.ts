@@ -7,6 +7,12 @@ import { HomeComponent } from './home/home.component';
 import { RecordingComponent } from './recording/recording.component';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { HttpClientModule } from '@angular/common/http';
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon'; 
+import {MatSliderModule} from '@angular/material/slider'; 
+import { NgxAudioPlayerMaterialModule } from "ngx-audio-player-material";
+import { VimeModule } from '@vime/angular';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,13 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HighlightModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSliderModule,
+    BrowserAnimationsModule,
+    NgxAudioPlayerMaterialModule,
+    VimeModule
   ],
   providers: [{
     provide: HIGHLIGHT_OPTIONS,
