@@ -81,7 +81,7 @@ export class RecordingComponent implements OnInit {
   getNearestCommitIndex(timestamp: number, prevIndex: number) {
     for (let i = 0; i < this.logs.length; i++) {
       if (this.logs[i].timestamp > timestamp) {
-        return Math.min(Math.max(i-1, 0), this.logs.length - 1);
+        return Math.min(Math.max(i - 1, 0), this.logs.length - 1);
       }
     }
     return this.logs.length - 1;
