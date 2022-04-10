@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatSliderModule} from '@angular/material/slider'; 
+import {MatButtonModule} from '@angular/material/button'; 
 import { NgxAudioPlayerMaterialModule } from "ngx-audio-player-material";
 import { VimeModule } from '@vime/angular';
 
@@ -28,6 +29,7 @@ import { VimeModule } from '@vime/angular';
     MatToolbarModule,
     MatIconModule,
     MatSliderModule,
+    MatButtonModule,
     BrowserAnimationsModule,
     NgxAudioPlayerMaterialModule,
     VimeModule
