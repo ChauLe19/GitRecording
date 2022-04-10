@@ -1,0 +1,15 @@
+<mat-card class="card">
+<mat-card-content class="item">
+  <img src="https://placeholder.pics/svg/100"/>
+</mat-card-content>
+<mat-card-content class="item">
+  <h2>title</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur ea eaque enim, ipsum molestiae, nam nostrum nulla perspiciatis, quos sequi sunt? Accusantium amet autem beatae consequatur cum cumque deleniti dolor dolorum ea eos facilis libero magnam, minima necessitatibus non odit perspiciatis provident, quidem, quod soluta tempora ut vel voluptates?</p>
+</mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon *ngIf="isFavorited" (click)="isFavorited = !isFavorited">favorite_border</mat-icon>
+      <mat-icon *ngIf="!isFavorited" color="primary" (click)="isFavorited = !isFavorited">favorite</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

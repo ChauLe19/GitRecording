@@ -1,0 +1,25 @@
+/*.card {*/
+/*  display: grid;*/
+/*  grid-template-columns: 5% 90%;*/
+/*  column-gap: 20px;*/
+/*}*/
+
+.card{
+  display: flex;
+  margin-bottom: 2px;
+}
+
+.item{
+  padding: 10px
+}
+@media (max-width: 290px) {
+  .card {
+    display: block;
+  }
+
+  .item {
+    display: block;
+    align-content: center;
+  }
+}
+
