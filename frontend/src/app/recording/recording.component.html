@@ -1,5 +1,9 @@
-<pre><code [highlight]="code" [languages]="['typescript']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code></pre>
-<!-- <ngx-audio-player src="http://localhost:3000/recordings/audio/repo"></ngx-audio-player> -->
+<div [ngStyle]="{'background-color': 'black', 'margin': '0', 'height': 'calc(100vh - 104px)'}">
+<h2 style="color: white;">sample title</h2>
+  <pre style="margin: 0;">
+    <code [ngStyle]="{'background': '0'}" [highlight]="code" [languages]="['typescript']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code>
+  </pre>
+</div><!-- <ngx-audio-player src="http://localhost:3000/recordings/audio/repo"></ngx-audio-player> -->
 <vm-player autoplay controls [currentTime]="currentTime" (vmCurrentTimeChange)="onTimeUpdate($event)">
     <vm-audio cross-origin>
 
