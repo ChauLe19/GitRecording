@@ -1,0 +1,29 @@
+<!-- <div>
+<form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Telephone</mat-label>
+      <span matPrefix>+1 &nbsp;</span>
+      <input type="tel" matInput placeholder="555-555-1234">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+  </form>
+</div> -->
+
+<!-- <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Favorite food</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="Sushi">
+    </mat-form-field>
+</form> -->
+
+<form class="example-form" (ngSubmit)="searchFunc(search)">
+    <mat-form-field class="example-full-width">
+        <input  matInput placeholder="Search" name="search" [(ngModel)]="search" style="width:100%;">
+        <!-- [(ngModel)]= "search" -->
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <br />
+    <!-- {{search}} -->
+</form>
+
+<app-tutorial-card *ngFor="let card of listArr" [card]="card"></app-tutorial-card>
