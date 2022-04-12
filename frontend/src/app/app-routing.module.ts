@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RecordingComponent } from './recording/recording.component';
 
-const routes: Routes = [{path: 'test', component:RecordingComponent}, {path: 'home', component: HomeComponent}, {path: '*', component: AppComponent}, ];
+const routes: Routes = [{path: 'test', component:RecordingComponent}, {path: '', component: HomeComponent}, {path: '*', component: AppComponent}, ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
