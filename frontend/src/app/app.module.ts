@@ -15,15 +15,17 @@ import {MatButtonModule} from '@angular/material/button';
 import { NgxAudioPlayerMaterialModule } from "ngx-audio-player-material";
 import { VimeModule } from '@vime/angular';
 import { TutorialCardComponent } from './tutorial-card/tutorial-card.component';
-
+import {MatTreeModule} from '@angular/material/tree'; 
 import {MatCardModule} from '@angular/material/card';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RecordingComponent,
-    TutorialCardComponent
+    TutorialCardComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import {MatCardModule} from '@angular/material/card';
     NgxAudioPlayerMaterialModule,
     VimeModule,
     MatCardModule,
+    MatTreeModule
   ],
   providers: [{
     provide: HIGHLIGHT_OPTIONS,

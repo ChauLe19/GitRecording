@@ -1,6 +1,27 @@
-<div [ngStyle]="{'background-color': 'black', 'margin': '0', 'height': 'calc(100vh - 104px)'}">
-<h2 style="color: white;">sample title</h2>
-  <pre style="margin: 0;">
+<div class="main" [ngStyle]="{'background-color': 'black', 'margin': '0', 'height': 'calc(100vh - 104px)'}">
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+            {{node.name}}
+        </mat-tree-node>
+        <!-- This is the tree node template for expandable nodes -->
+        <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+            <div class="mat-tree-node">
+                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                    <mat-icon class="mat-icon-rtl-mirror">
+                        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                    </mat-icon>
+                </button>
+                {{node.name}}
+            </div>
+            <div [class.example-tree-invisible]="!treeControl.isExpanded(node)" role="group">
+                <ng-container matTreeNodeOutlet></ng-container>
+            </div>
+        </mat-nested-tree-node>
+    </mat-tree>
+
+
+    <h2 style="color: white;">sample title</h2>
+    <pre style="margin: 0;">
     <code [ngStyle]="{'background': '0'}" [highlight]="code" [languages]="['typescript']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code>
   </pre>
 </div><!-- <ngx-audio-player src="http://localhost:3000/recordings/audio/repo"></ngx-audio-player> -->

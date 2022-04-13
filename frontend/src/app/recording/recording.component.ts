@@ -1,9 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { HighlightLoader, HighlightAutoResult } from 'ngx-highlightjs';
 import { RecordingService } from '../_services/recording.service';
+import {NestedTreeControl} from '@angular/cdk/tree';
+import {MatTreeNestedDataSource} from '@angular/material/tree';
+
 
 const themeGithub: string = 'node_modules/highlight.js/styles/github.css';
 const themeAndroidStudio: string = 'node_modules/highlight.js/styles/androidstudio.css';
+interface FoodNode {
+  name: string;
+  children?: FoodNode[];
+}
+
+const TREE_DATA: FoodNode[] = [
+  {
+    name: 'Fruit',
+    children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
+  },
+  {
+    name: 'Vegetables',
+    children: [
+      {
+        name: 'Green',
+        children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
+      },
+      {
+        name: 'Orange',
+        children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
+      },
+    ],
+  },
+];
 
 @Component({
   selector: 'app-recording',
@@ -11,6 +38,9 @@ const themeAndroidStudio: string = 'node_modules/highlight.js/styles/androidstud
   styleUrls: ['./recording.component.css']
 })
 export class RecordingComponent implements OnInit {
+
+    treeControl = new NestedTreeControl<FoodNode>(node => node.children);
+  dataSource = new MatTreeNestedDataSource<FoodNode>();
 
   currentTime = 0;
   response: HighlightAutoResult | undefined;
@@ -21,7 +51,9 @@ export class RecordingComponent implements OnInit {
   logs: any[] = [];
   prevIndex = 0;
   currentCommit = {};
-  constructor(private hljsLoader: HighlightLoader, private recordingService: RecordingService) { }
+  constructor(private hljsLoader: HighlightLoader, private recordingService: RecordingService) { 
+    this.dataSource.data = TREE_DATA;
+  }
 
   async ngOnInit() {
     let tempcode = ``
@@ -52,6 +84,8 @@ export class RecordingComponent implements OnInit {
     })
 
   }
+
+  hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
 
   onHighlight(e: HighlightAutoResult) {
     this.response = {
