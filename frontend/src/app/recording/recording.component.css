@@ -4,21 +4,21 @@
   .example-tree-invisible {
     display: none;
   }
-  
+
   .example-tree ul,
   .example-tree li {
     margin-top: 0;
     margin-bottom: 0;
     list-style-type: none;
   }
-  
+
   /*
    * This padding sets alignment of the nested nodes.
    */
   .example-tree .mat-nested-tree-node div[role=group] {
     padding-left: 40px;
   }
-  
+
   /*
    * Padding for leaf nodes.
    * Leaf nodes need to have padding so as to align with other non-leaf nodes
@@ -27,4 +27,24 @@
   .example-tree div[role=group] > .mat-tree-node {
     padding-left: 40px;
   }
-  
+
+  .main {
+    display: flex;
+  }
+  .filetree {
+    width: 300px;
+    background-color: #424242;
+    overflow-y: scroll;
+  }
+
+  .player #bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .player {
+    position: relative;
+    width: 100%;
+    overflow-y: scroll;
+  }

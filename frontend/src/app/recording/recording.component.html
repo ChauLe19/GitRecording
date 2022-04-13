@@ -1,4 +1,5 @@
-<div class="main" [ngStyle]="{'background-color': 'black', 'margin': '0', 'height': 'calc(100vh - 104px)'}">
+<div class="main" [ngStyle]="{'background-color': 'black', 'margin': '0', 'height': 'calc(100vh - 64px)'}">
+  <div class="filetree">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
             {{node.name}}
@@ -19,16 +20,21 @@
         </mat-nested-tree-node>
     </mat-tree>
 
+  </div>
 
+  <div class="player">
     <h2 style="color: white;">sample title</h2>
     <pre style="margin: 0;">
     <code [ngStyle]="{'background': '0'}" [highlight]="code" [languages]="['typescript']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code>
   </pre>
-</div><!-- <ngx-audio-player src="http://localhost:3000/recordings/audio/repo"></ngx-audio-player> -->
-<vm-player autoplay controls [currentTime]="currentTime" (vmCurrentTimeChange)="onTimeUpdate($event)">
-    <vm-audio cross-origin>
+    <vm-player id="bottom" autoplay controls [currentTime]="currentTime" (vmCurrentTimeChange)="onTimeUpdate($event)">
+      <vm-audio cross-origin>
 
         <source data-src="http://localhost:3000/recordings/audio/repo" type="audio/wav" />
-    </vm-audio>
+      </vm-audio>
 
-</vm-player>
+    </vm-player>
+  </div>
+
+</div><!-- <ngx-audio-player src="http://localhost:3000/recordings/audio/repo"></ngx-audio-player> -->
+
