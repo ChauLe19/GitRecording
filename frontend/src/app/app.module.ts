@@ -9,15 +9,21 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule } from '@angular/material/button';
 import { NgxAudioPlayerMaterialModule } from "ngx-audio-player-material";
 import { VimeModule } from '@vime/angular';
 import { TutorialCardComponent } from './tutorial-card/tutorial-card.component';
-import {MatTreeModule} from '@angular/material/tree'; 
-import {MatCardModule} from '@angular/material/card';
+import { MatTreeModule } from '@angular/material/tree';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { FormsModule } from '@angular/forms';
+
+import { MatCardModule } from '@angular/material/card';
+import { InfoComponent } from './info/info.component';
+import { SearchComponent } from './search/search.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS, } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,9 @@ import { FavoritesComponent } from './favorites/favorites.component';
     HomeComponent,
     RecordingComponent,
     TutorialCardComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    InfoComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -40,14 +48,18 @@ import { FavoritesComponent } from './favorites/favorites.component';
     NgxAudioPlayerMaterialModule,
     VimeModule,
     MatCardModule,
-    MatTreeModule
+    MatTreeModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule
   ],
   providers: [{
     provide: HIGHLIGHT_OPTIONS,
     useValue: {
       fullLibraryLoader: () => import('highlight.js'),
     }
-  }
+  },
+  { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }
   ],
   bootstrap: [AppComponent]
 })
