@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-tutorial-card',
@@ -6,23 +7,24 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./tutorial-card.component.css']
 })
 export class TutorialCardComponent implements OnInit {
-  isFavorited: boolean;
+  @Input() isFavorited: boolean = false;
   @Input() card: any;
-  constructor() {
-    this.isFavorited = false
+  constructor(private userService:UserService) {
   }
-
+  
   ngOnInit(): void {
 
   }
 
   addToFavorites(){
     this.isFavorited = true;
+    this.userService.addFavorite(this.card).subscribe(()=>{})
   }
-
+  
   removeFromFavorites(){
     this.isFavorited = false;
-    console.log(this.isFavorited)
+    this.userService.deleteFavorite(this.card).subscribe(()=>{})
+    // console.log(this.isFavorited)
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TutorialCardComponent } from '../tutorial-card/tutorial-card.component'
-
+import { TutorialService } from '../_services/tutorial.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -32,21 +32,25 @@ export class SearchComponent implements OnInit {
   ];
   listArr: any[] = []
 
-  constructor() { }
+  constructor(private tutorialService:TutorialService) { }
 
   ngOnInit(): void {
-    this.listArr = this.tutorial_cards;
+    this.tutorialService.getTutorials().subscribe(data=>{
+      this.listArr = data
+    })
   }
 
   //Search function
   searchFunc(searchKey: string) {
 
-    const searchedArr = this.tutorial_cards.filter((e: any) => {
-      return e.title.toLowerCase().includes(searchKey.toLowerCase())
+    // const searchedArr = this.tutorial_cards.filter((e: any) => {
+    //   return e.title.toLowerCase().includes(searchKey.toLowerCase())
+    // })
+    // this.listArr = searchedArr;
+
+    this.tutorialService.searchTutorials(searchKey).subscribe((data)=>{
+      this.listArr = data
     })
-    this.listArr = searchedArr;
-
-
 
   }
 

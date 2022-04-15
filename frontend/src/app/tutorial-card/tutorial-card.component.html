@@ -8,8 +8,8 @@
   </mat-card-content>
   <mat-card-actions class="actions">
     <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-      <mat-icon *ngIf="isFavorited" (click)="isFavorited = !isFavorited">favorite_border</mat-icon>
-      <mat-icon *ngIf="!isFavorited" color="primary" (click)="isFavorited = !isFavorited">favorite</mat-icon>
+      <mat-icon *ngIf="!isFavorited" (click)="addToFavorites()">favorite_border</mat-icon>
+      <mat-icon *ngIf="isFavorited" color="primary" (click)="removeFromFavorites()">favorite</mat-icon>
     </button>
     <button routerLink="/recording/{{card.url}}" mat-button aria-label="Example icon button with a vertical three dot icon">
     Check out tutorial

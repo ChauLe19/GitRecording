@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TutorialCardComponent } from '../tutorial-card/tutorial-card.component';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-favorites',
@@ -7,21 +8,15 @@ import { TutorialCardComponent } from '../tutorial-card/tutorial-card.component'
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
-  tutorial_cards: any[] = [{
-    title: "Java Tutorial",
-    description: "The purpose of the tutorial is to serve as support, as well as a challenge, for individual students' knowledge acquisition, but it can also be used for training collaboration abilities.",
-    image: "https://dev.java/assets/images/java-logo-vert-blk.png",
-    url: "java"
-  }, {
-    title: "NodeJS Tutorial",
-    description: "The purpose of the tutorial is to serve as support, as well as a challenge, for individual students' knowledge acquisition, but it can also be used for training collaboration abilities.",
-    image: "https://nodejs.org/static/images/logo-hexagon-card.png",
-    url: "nodejs"
-  }
+  tutorial_cards: any[] = [
   ];
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
+    this.userService.getFavoriteTutorials().subscribe(data=>{
+      this.tutorial_cards = data;
+      console.log(data)
+    })
   }
 
 }
