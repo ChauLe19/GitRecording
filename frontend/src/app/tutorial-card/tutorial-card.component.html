@@ -1,11 +1,11 @@
-<mat-card class="card" >
-<mat-card-content class="item">
-  <img [src]="card.image" style="max-height: 100px; max-width: 100px;"/>
-</mat-card-content>
-<mat-card-content class="item">
-  <h2>{{card.title}}</h2>
-  <p>{{card.description}}</p>
-</mat-card-content>
+<mat-card class="card" routerLink="/recording/{{card.url}}">
+  <mat-card-content class="item">
+    <img [src]="card.image" style="max-height: 100px; max-width: 100px;" />
+  </mat-card-content>
+  <mat-card-content class="item">
+    <h2>{{card.title}}</h2>
+    <p>{{card.description}}</p>
+  </mat-card-content>
   <mat-card-actions>
     <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
       <mat-icon *ngIf="isFavorited" (click)="isFavorited = !isFavorited">favorite_border</mat-icon>
