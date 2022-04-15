@@ -3,7 +3,7 @@
     max-width: 500px;
     width: 100%;
   }
-  
+
   .example-full-width {
     width: 100%;
   } */
@@ -14,7 +14,8 @@
     max-width: 500px; */
     width: 98%;
   }
-  
+
   .example-full-width {
     width: 100%;
+    margin: 0px 10px;
   }

@@ -18,9 +18,11 @@
 
 <form class="example-form" (ngSubmit)="searchFunc(search)">
     <mat-form-field class="example-full-width">
-        <input  matInput placeholder="Search" name="search" [(ngModel)]="search" style="width:100%;">
+        <input type="search" matInput placeholder="Search" name="search" [(ngModel)]="search" style="width:100%;">
         <!-- [(ngModel)]= "search" -->
-        <mat-icon matSuffix>search</mat-icon>
+<!--        <button mat-icon-button>-->
+          <mat-icon matSuffix>search</mat-icon>
+<!--        </button>-->
     </mat-form-field>
     <br />
     <!-- {{search}} -->
