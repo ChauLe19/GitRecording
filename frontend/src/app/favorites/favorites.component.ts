@@ -7,7 +7,24 @@ import { TutorialCardComponent } from '../tutorial-card/tutorial-card.component'
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
-  cards:any[] = [{},{},{}]
+  tutorial_cards: any[] = [{
+    title: "Cloud Tutorial",
+    description: "The purpose of the tutorial is to serve as support, as well as a challenge, for individual students' knowledge acquisition, but it can also be used for training collaboration abilities.",
+    image: ""
+  }, {
+    title: "Java Tutorial",
+    description: "The purpose of the tutorial is to serve as support, as well as a challenge, for individual students' knowledge acquisition, but it can also be used for training collaboration abilities.",
+    image: ""
+  }, {
+    title: "Python Tutorial",
+    description: "The purpose of the tutorial is to serve as support, as well as a challenge, for individual students' knowledge acquisition, but it can also be used for training collaboration abilities.",
+    image: ""
+  }, {
+    title: "NodeJS Tutorial",
+    description: "The purpose of the tutorial is to serve as support, as well as a challenge, for individual students' knowledge acquisition, but it can also be used for training collaboration abilities.",
+    image: ""
+  }
+  ];
   constructor() { }
 
   ngOnInit(): void {

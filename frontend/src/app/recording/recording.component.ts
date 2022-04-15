@@ -1,36 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { HighlightLoader, HighlightAutoResult } from 'ngx-highlightjs';
 import { RecordingService } from '../_services/recording.service';
-import {NestedTreeControl} from '@angular/cdk/tree';
-import {MatTreeNestedDataSource} from '@angular/material/tree';
+import { NestedTreeControl } from '@angular/cdk/tree';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
 
 
 const themeGithub: string = 'node_modules/highlight.js/styles/github.css';
 const themeAndroidStudio: string = 'node_modules/highlight.js/styles/androidstudio.css';
-interface FoodNode {
+interface File {
   name: string;
-  children?: FoodNode[];
+  subfolders?: File[];
 }
 
-const TREE_DATA: FoodNode[] = [
-  {
-    name: 'Fruit',
-    children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
-  },
-  {
-    name: 'Vegetables',
-    children: [
-      {
-        name: 'Green',
-        children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
-      },
-      {
-        name: 'Orange',
-        children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
-      },
-    ],
-  },
-];
+
 
 @Component({
   selector: 'app-recording',
@@ -39,8 +21,30 @@ const TREE_DATA: FoodNode[] = [
 })
 export class RecordingComponent implements OnInit {
 
-    treeControl = new NestedTreeControl<FoodNode>(node => node.children);
-  dataSource = new MatTreeNestedDataSource<FoodNode>();
+  repository: File[] = [
+    {
+      name: 'frontend',
+      subfolders: [{ name: 'index.js' }, { name: 'authorization.js' }, { name: 'package.json' }],
+    },
+    {
+      name: 'backend',
+      subfolders: [
+        {
+          name: 'routes',
+          subfolders: [{ name: 'index.js' }, { name: 'user.router.js' }],
+        },
+        {
+          name: 'misc',
+          subfolders: [{ name: 'tutorial.js' }, { name: 'package.json' }],
+        },
+      ],
+    },
+    {
+      name:'empty.js'
+    }
+  ];
+  treeControl = new NestedTreeControl<File>(node => node.subfolders);
+  dataSource = new MatTreeNestedDataSource<File>();
 
   currentTime = 0;
   response: HighlightAutoResult | undefined;
@@ -51,41 +55,20 @@ export class RecordingComponent implements OnInit {
   logs: any[] = [];
   prevIndex = 0;
   currentCommit = {};
-  constructor(private hljsLoader: HighlightLoader, private recordingService: RecordingService) { 
-    this.dataSource.data = TREE_DATA;
+  constructor(private hljsLoader: HighlightLoader, private recordingService: RecordingService) {
+    this.dataSource.data = this.repository;
   }
 
   async ngOnInit() {
     let tempcode = ``
     this.code = tempcode;
-    // for(let i = 0; i < tempcode.length; i++){
-    //   await setTimeout(()=>{
-    //     this.code+= tempcode[i];
-
-    //   },i*200)
-    // })
-    // this.recordingService.getAudioFile("JSTutorial").subscribe((audio)=>{
-
-    // })
     this.recordingService.getRepoTimestamp("asd").subscribe((logs) => {
-      // this.code = JSON.stringify(data);
-      // console.log(data)
-      // console.log(logs)
-      // for (let log of logs) {
-      //   console.log(log)
-      //   this.recordingService.getFileWithCommitID("daf","tutorial.js",log.commitHash).subscribe(data=>{
-      //     setTimeout(()=>{
-      //       // console.log(data)
-      //       this.code = data
-      //     }, log.timestamp)
-      //   })
-      // }
       this.logs = logs
     })
 
   }
 
-  hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
+  hasChild = (_: number, node: File) => !!node.subfolders && node.subfolders.length > 0;
 
   onHighlight(e: HighlightAutoResult) {
     this.response = {

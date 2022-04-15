@@ -5,7 +5,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { HomeComponent } from './home/home.component';
 import { RecordingComponent } from './recording/recording.component';
 
-const routes: Routes = [{ path: 'test', component: RecordingComponent }, { path: 'favorites', component: FavoritesComponent }, 
+const routes: Routes = [{ path: 'recording/:file', component: RecordingComponent }, { path: 'favorites', component: FavoritesComponent }, 
 { path: '', component: HomeComponent },
  { path: '*', component: AppComponent },];
 
