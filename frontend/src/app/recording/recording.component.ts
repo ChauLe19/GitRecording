@@ -3,14 +3,10 @@ import { HighlightLoader, HighlightAutoResult } from 'ngx-highlightjs';
 import { RecordingService } from '../_services/recording.service';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
-
+import { File } from '../_models/filetree';
 
 const themeGithub: string = 'node_modules/highlight.js/styles/github.css';
 const themeAndroidStudio: string = 'node_modules/highlight.js/styles/androidstudio.css';
-interface File {
-  name: string;
-  subfolders?: File[];
-}
 
 
 
@@ -20,29 +16,7 @@ interface File {
   styleUrls: ['./recording.component.css']
 })
 export class RecordingComponent implements OnInit {
-
-  repository: File[] = [
-    {
-      name: 'frontend',
-      subfolders: [{ name: 'index.js' }, { name: 'authorization.js' }, { name: 'package.json' }],
-    },
-    {
-      name: 'backend',
-      subfolders: [
-        {
-          name: 'routes',
-          subfolders: [{ name: 'index.js' }, { name: 'user.router.js' }],
-        },
-        {
-          name: 'misc',
-          subfolders: [{ name: 'tutorial.js' }, { name: 'package.json' }],
-        },
-      ],
-    },
-    {
-      name:'empty.js'
-    }
-  ];
+  repository: File[]=[];
   treeControl = new NestedTreeControl<File>(node => node.subfolders);
   dataSource = new MatTreeNestedDataSource<File>();
 
@@ -64,6 +38,11 @@ export class RecordingComponent implements OnInit {
     this.code = tempcode;
     this.recordingService.getRepoTimestamp("asd").subscribe((logs) => {
       this.logs = logs
+    })
+    this.recordingService.getRepoFilesTree("as").subscribe((data)=>{
+      console.log(data)
+      this.repository = data
+      this.dataSource.data = this.repository;
     })
 
   }
