@@ -4,6 +4,8 @@ import { RecordingService } from '../_services/recording.service';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { File } from '../_models/filetree';
+import { Recording } from '../_models/recording';
+import { Timestamp } from '../_models/timestamp';
 
 const themeGithub: string = 'node_modules/highlight.js/styles/github.css';
 const themeAndroidStudio: string = 'node_modules/highlight.js/styles/androidstudio.css';
@@ -22,29 +24,33 @@ export class RecordingComponent implements OnInit {
 
   currentTime = 0;
   response: HighlightAutoResult | undefined;
-  title = 'SyntaxHighlightDemo';
+  title = '';
   code = `
   `;
   currentTheme: string = themeGithub;
-  logs: any[] = [];
+  logs: Timestamp[] = [];
   prevIndex = 0;
-  currentCommit = {};
+  currentCommit:Timestamp=new Timestamp();
   constructor(private hljsLoader: HighlightLoader, private recordingService: RecordingService) {
     this.dataSource.data = this.repository;
   }
 
   async ngOnInit() {
-    let tempcode = ``
-    this.code = tempcode;
-    this.recordingService.getRepoTimestamp("asd").subscribe((logs) => {
-      this.logs = logs
-    })
-    this.recordingService.getRepoFilesTree("as").subscribe((data)=>{
+    // this.recordingService.getRepoTimestamp("asd").subscribe((logs) => {
+    //   this.logs = logs
+    // })
+    // this.recordingService.getRepoFilesTree("as").subscribe((data)=>{
+    //   this.repository = data
+    //   this.dataSource.data = this.repository;
+    // })
+    
+    this.recordingService.getRecording("jstutorial").subscribe((data:Recording)=>{
       console.log(data)
-      this.repository = data
+      this.logs = data.timestamps;
+      this.title = data.title;
+      this.repository = data.filetree;
       this.dataSource.data = this.repository;
     })
-
   }
 
   hasChild = (_: number, node: File) => !!node.subfolders && node.subfolders.length > 0;
