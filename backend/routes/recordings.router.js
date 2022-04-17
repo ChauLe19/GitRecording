@@ -3,6 +3,7 @@ var router = express.Router();
 const simpleGit = require("simple-git");
 const ms = require("mediaserver")
 var path = require("path");
+var recordingService = require("../services/recording.service")
 const recordingsController = require("../controllers/recordings.controller")
 var fs = require('fs')
     // import path from 'path'
@@ -40,6 +41,10 @@ router.get("/audio/:repo", (req, res) => {
     ms.pipe(req, res, "../../JSTutorial/JSTutorial.wav");
 })
 
+//Testing
+router.post("/addrecording", (req, res) => {
+    recordingService.addRecording(req.body).then((result) => res.json(result)).catch((e) => res.json(e))
+})
 
 router.get("/checkout/:repo/:file/:commithash", recordingsController.getFileWithCommitID)
 router.get("/timestamp/:repo", recordingsController.getRepoTimestamp)
