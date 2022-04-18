@@ -6,6 +6,8 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { File } from '../_models/filetree';
 import { Recording } from '../_models/recording';
 import { Timestamp } from '../_models/timestamp';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, switchMap } from 'rxjs';
 
 const themeGithub: string = 'node_modules/highlight.js/styles/github.css';
 const themeAndroidStudio: string = 'node_modules/highlight.js/styles/androidstudio.css';
@@ -31,7 +33,7 @@ export class RecordingComponent implements OnInit {
   logs: Timestamp[] = [];
   prevIndex = 0;
   currentCommit:Timestamp=new Timestamp();
-  constructor(private hljsLoader: HighlightLoader, private recordingService: RecordingService) {
+  constructor(private hljsLoader: HighlightLoader, private recordingService: RecordingService, private route:ActivatedRoute) {
     this.dataSource.data = this.repository;
   }
 
@@ -43,14 +45,16 @@ export class RecordingComponent implements OnInit {
     //   this.repository = data
     //   this.dataSource.data = this.repository;
     // })
-    
-    this.recordingService.getRecording("jstutorial").subscribe((data:Recording)=>{
-      console.log(data)
+    // console.log("hi")
+    let url:string = this.route.snapshot.paramMap.get('file') || ''
+    this.recordingService.getRecording(url).subscribe((data:Recording)=>{
       this.logs = data.timestamps;
       this.title = data.title;
       this.repository = data.filetree;
       this.dataSource.data = this.repository;
     })
+
+    // a = this.route.snapshot.paramMap.get('bank');
   }
 
   hasChild = (_: number, node: File) => !!node.subfolders && node.subfolders.length > 0;
@@ -89,4 +93,11 @@ export class RecordingComponent implements OnInit {
     return this.logs.length - 1;
   }
 
+  test(event:any){
+    console.log(event)
+    // fetch the file clicked at the right timestamp
+    // this.recordingService.getFileWithCommitID("daf", "tutorial.js", this.logs[nearestCommitIndex].commitHash).subscribe(data => {
+    //   this.code = data
+    // })
+  }
 }

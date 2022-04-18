@@ -18,7 +18,9 @@ import { TutorialCardComponent } from './tutorial-card/tutorial-card.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { FormsModule } from '@angular/forms';
-
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { MatCardModule } from '@angular/material/card';
 import { InfoComponent } from './info/info.component';
 import { SearchComponent } from './search/search.component';
@@ -51,7 +53,7 @@ import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS, } from '@angular/ma
     MatTreeModule,
     MatFormFieldModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [{
     provide: HIGHLIGHT_OPTIONS,

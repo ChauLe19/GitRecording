@@ -9,7 +9,7 @@ import { Timestamp } from '../_models/timestamp';
   providedIn: 'root'
 })
 export class RecordingService {
-  fileTree:File[] = [
+  fileTree: File[] = [
     {
       name: 'frontend',
       subfolders: [{ name: 'index.js' }, { name: 'authorization.js' }, { name: 'package.json' }],
@@ -28,10 +28,10 @@ export class RecordingService {
       ],
     },
     {
-      name:'empty.js'
+      name: 'empty.js'
     }
   ];
-  timestamps:Timestamp[] = [
+  timestamps: Timestamp[] = [
     { order: 0, commitHash: '2bde2ac', timestamp: 6681 },
     { order: 1, commitHash: 'f27d2f6', timestamp: 9434 },
     { order: 2, commitHash: 'ebd3c96', timestamp: 12683 },
@@ -52,7 +52,12 @@ export class RecordingService {
     { order: 17, commitHash: '3867ef3', timestamp: 36130 },
     { order: 18, commitHash: '913118f', timestamp: 38185 }
   ];
-  recording:Recording = {title: "JSTutorial",filetree : this.fileTree, timestamps:this.timestamps}
+  // recording: Recording = { title: "JSTutorial", filetree: this.fileTree, timestamps: this.timestamps }
+
+  recordings: Recording[] = [{ title: "Javascript Tutorial: function", filetree: this.fileTree, timestamps: this.timestamps, url: "nodejs", audioURL: `http://localhost:3000/recordings/audio/js` },
+  { title: "Cloud Tutorial: expressJS", filetree: [{name:"index.js"}], timestamps: this.timestamps, audioURL: "http://localhost:3000/recordings/audio/cloud", url: "cloud" },
+  { title: "Python: Hello world", filetree: [{name:"index.py"}], timestamps: this.timestamps, audioURL: "http://localhost:3000/recordings/audio/cloud", url: "python" },
+  { title: "Java: Hello World", filetree: [{name:"main.java"}], timestamps: this.timestamps, audioURL: "http://localhost:3000/recordings/audio/cloud", url: "java" }]
   constructor(private http: HttpClient) { }
 
   getCommit(): Observable<String> {
@@ -60,9 +65,9 @@ export class RecordingService {
     return this.http.get<String>(`http://localhost:3000/recordings/checkout/gitID/commitID`);
   }
 
-  getRecording(repo: string):Observable<Recording>{
-    return new Observable<Recording>(subscriber => { 
-      subscriber.next(this.recording)
+  getRecording(repo: string): Observable<Recording> {
+    return new Observable<Recording>(subscriber => {
+      subscriber.next(this.recordings.find(recording=> recording.url == repo))
     })
   }
   getRepoTimestamp(repo: String): Observable<any> {
@@ -78,7 +83,7 @@ export class RecordingService {
   }
 
   getRepoFilesTree(repo: string): Observable<File[]> {
-    return new Observable<File[]>(subscriber => { 
+    return new Observable<File[]>(subscriber => {
       subscriber.next(this.fileTree)
     })
 

@@ -4,5 +4,6 @@ export class Recording{
     title!: string;
     filetree!: File[];
     timestamps!: Timestamp[];
-    // audio link: ????
+    audioURL: string = "";
+    url:string = ""
 }
