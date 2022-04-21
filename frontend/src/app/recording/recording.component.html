@@ -3,7 +3,7 @@
 
   <div class="filetree" style="padding-left: 1rem; padding-right: 1rem;">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
-      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle (click)="test($event)" style="cursor: pointer;">
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle (click)="onLeafNodeClick(node)" style="cursor: pointer;">
         
         <mat-icon>
           description

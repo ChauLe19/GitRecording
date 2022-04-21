@@ -20,7 +20,7 @@ const themeAndroidStudio: string = 'node_modules/highlight.js/styles/androidstud
   styleUrls: ['./recording.component.css']
 })
 export class RecordingComponent implements OnInit {
-  repository: File[]=[];
+  repository: File[] = [];
   treeControl = new NestedTreeControl<File>(node => node.subfolders);
   dataSource = new MatTreeNestedDataSource<File>();
 
@@ -29,13 +29,13 @@ export class RecordingComponent implements OnInit {
   title = '';
   code = `
   `;
-  url:string='';
+  url: string = '';
   currentTheme: string = themeGithub;
   logs: Timestamp[] = [];
   prevIndex = 0;
-  currentCommit:Timestamp=new Timestamp();
-  currentFile: string=''
-  constructor(private hljsLoader: HighlightLoader, private recordingService: RecordingService, private route:ActivatedRoute) {
+  currentCommit: Timestamp = new Timestamp();
+  currentFile: string = ''
+  constructor(private hljsLoader: HighlightLoader, private recordingService: RecordingService, private route: ActivatedRoute) {
     this.dataSource.data = this.repository;
   }
 
@@ -49,15 +49,33 @@ export class RecordingComponent implements OnInit {
     // })
     // console.log("hi")
     this.url = this.route.snapshot.paramMap.get('file') || ''
-    this.recordingService.getRecording(this.url).subscribe((data:Recording)=>{
+    this.recordingService.getRecording(this.url).subscribe((data: Recording) => {
       this.logs = data.timestamps;
       this.title = data.title;
       this.repository = data.filetree;
       this.dataSource.data = this.repository;
-      this.currentFile = this.repository[0].name;
+      // this.currentFile = this.repository[0].name;
+      this.currentFile = this.getFirstFile(this.repository) || null
     })
 
     // a = this.route.snapshot.paramMap.get('bank');
+  }
+
+  getFirstFile(filetree: File[]): any {
+    for (let file of filetree) {
+
+      if ((file.subfolders != null && file.subfolders.length == 0) || file.subfolders == null) {
+        return file.name;
+      }
+      else {
+        let temp: File = this.getFirstFile(file.subfolders);
+        if (temp != null) {
+          return temp.name;
+        }
+      }
+
+      return null;
+    }
   }
 
   hasChild = (_: number, node: File) => !!node.subfolders && node.subfolders.length > 0;
@@ -96,11 +114,41 @@ export class RecordingComponent implements OnInit {
     return this.logs.length - 1;
   }
 
-  test(event:any){
-    console.log(event)
-    // fetch the file clicked at the right timestamp
-    // this.recordingService.getFileWithCommitID("daf", "tutorial.js", this.logs[nearestCommitIndex].commitHash).subscribe(data => {
-    //   this.code = data
-    // })
+  getAncestors(array: any, name: string) {
+    if (typeof array != "undefined") {
+      for (let i = 0; i < array.length; i++) {
+        if (array[i].name === name) {
+          return [array[i]];
+        }
+        const a: any = this.getAncestors(array[i].subfolders, name);
+        if (a !== null) {
+          a.unshift(array[i]);
+          return a;
+        }
+      }
+    }
+    return null;
+  }
+
+  onLeafNodeClick(node: File): void {
+    const ancestors = this.getAncestors(this.dataSource.data, node.name);
+    console.log("ancestors ", ancestors);
+
+    // this.treeControl.collapse(ancestors[0]);
+    console.log("direct parent  ", ancestors[ancestors.length - 2]);
+    let breadcrumbs = "";
+    ancestors.forEach((ancestor: any) => {
+      breadcrumbs += `${ancestor.name}/`;
+    });
+    breadcrumbs = breadcrumbs.slice(0, -1);
+    if (breadcrumbs != this.currentFile) {
+      this.currentFile = breadcrumbs
+      let nearestCommitIndex: number = this.getNearestCommitIndex(this.currentTime * 1000, this.prevIndex);
+
+      this.prevIndex = nearestCommitIndex;
+      this.recordingService.getFileWithCommitID(this.url, this.currentFile, this.logs[nearestCommitIndex].commitHash).subscribe(data => {
+        this.code = data
+      })
+    }
   }
 }

@@ -36,11 +36,6 @@ router.get("/play/:recording", (req, res, next) => { // don't do this in project
     res.send("Done")
 })
 
-router.get("/audio/:repo", (req, res) => {
-    console.log(req.params.file);
-    ms.pipe(req, res, "../../JSTutorial/JSTutorial.wav");
-})
-
 router.get("/getaudio/:recordingID", async (req, res) => {
     try{
 
@@ -61,8 +56,8 @@ router.get("/search", recordingsController.search)
 
 router.get("/getall", recordingsController.getAllTutorials)
 
-router.get("/checkout/:repo/:file/:commithash", recordingsController.getFileWithCommitID)
-router.get("/timestamp/:repo", recordingsController.getRepoTimestamp)
+router.get("/checkout/:recordingID/:commithash", recordingsController.getFileWithCommitID)
+router.get("/timestamp/:recordingID", recordingsController.getRepoTimestamp)
 
 module.exports = router;
 

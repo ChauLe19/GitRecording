@@ -76,7 +76,7 @@ export class RecordingService {
   }
 
   getFileWithCommitID(recordingID: String, file: String, commitHash: String): Observable<any> {
-    return this.http.get(`http://localhost:3000/recordings/checkout/${recordingID}/${file}/${commitHash}`);
+    return this.http.get(`http://localhost:3000/recordings/checkout/${recordingID}/${commitHash}?file=${file}`);
   }
 
   getAudioFile(recordingID: String): Observable<any> {

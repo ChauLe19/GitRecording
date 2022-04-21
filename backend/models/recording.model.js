@@ -6,9 +6,10 @@ const mongoose = require("mongoose")
 //     timestamp: { type: Number }
 // })
 
-const FiletreeSchema = new mongoose.Schema({
+const FiletreeSchema = new mongoose.Schema();
+FiletreeSchema.add({
     name: { type: String },
-    subfolders: { type: [mongoose.Schema.Types.ObjectId], ref: "FiletreeSchema", required: false }
+    subfolders: [FiletreeSchema]
     // subfolders: [FiletreeSchema]
 })
 
@@ -17,7 +18,9 @@ const RecordingSchema = new mongoose.Schema({
     title: { type: String },
     description: { type: String },
     image: { type: String },
-    filetree: { type: [FiletreeSchema] },
+    filetree: {
+        type: [FiletreeSchema]
+    },
     timestamps: {
         type: [{
             order: { type: Number },

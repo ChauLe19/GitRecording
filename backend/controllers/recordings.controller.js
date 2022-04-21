@@ -2,18 +2,24 @@ var fs = require('fs')
 var serialize = require('node-serialize')
 
 const simpleGit = require("simple-git");
-const git = simpleGit("../../JSTutorial");
 const recordingService = require("../services/recording.service")
 
-function getFileWithCommitID(req, res) {
+async function getFileWithCommitID(req, res) {
     let commit = req.params.commithash
-    let recording = req.params.file
+    let recording = req.query.file
+    let recordingID = req.params.recordingID
     // git.show(`${commit}:${file}`).then(ressult => res.send({ body: result }))
-    git.show(`${commit}:${recording}`).then(result => res.json(result))
+    let recordingInfo = await recordingService.getRecording(recordingID); // TODO: maybe use local folder as params instead of recordingID
+    
+    const git = simpleGit(`../../${recordingInfo.localfolder}`);
+    try{
+        git.show(`${commit}:${recording}`).then(result => res.json(result)).catch(err => res.json(""))
+    }catch(err){
+        res.status(400).json({err})
+    }
 }
 
 function getRepoTimestamp(req, res) {
-    let repo = req.params.repo
 
     let data = ""
     try {

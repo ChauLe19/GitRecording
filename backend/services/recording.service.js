@@ -14,7 +14,7 @@ async function addRecording(recording) {
 
 async function getRecording(recordingID) {
     let recording = await Recording.findOne({ _id: recordingID });
-    recording.filetree = [{ name: "tutorial.js" }] // overwriting fixed value
+    // recording.filetree = [{ name: "tutorial.js" }] // overwriting fixed value
     return recording
 }
 
