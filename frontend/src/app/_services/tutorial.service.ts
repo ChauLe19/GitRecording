@@ -35,36 +35,24 @@ export class TutorialService {
   getTutorials(): Observable<Tutorial[]> { // get all tutorials
     // TODO: this is a blueprint only
     // return this.http.get<String>(`http://localhost:3000/tutorial/search`);
-    return new Observable<Tutorial[]>(subscriber => {
-      if (this.tutorial_cards.length > 0) {
-        setTimeout(() => {
-          subscriber.next(this.tutorial_cards);
-        }, 1000);
-      } else {
-        setTimeout(() => {
-          subscriber.error('No tutorials in the DB.');
-        }, 1000);
-      }
+    // return new Observable<Tutorial[]>(subscriber => {
+    //   if (this.tutorial_cards.length > 0) {
+    //     setTimeout(() => {
+    //       subscriber.next(this.tutorial_cards);
+    //     }, 1000);
+    //   } else {
+    //     setTimeout(() => {
+    //       subscriber.error('No tutorials in the DB.');
+    //     }, 1000);
+    //   }
 
-    });
+    // });
+    return this.http.get<Tutorial[]>(`http://localhost:3000/recordings/getall`);
   }
 
   searchTutorials(query: string): Observable<Tutorial[]> {
-    // return this.http.get<String>(`http://localhost:3000/tutorial/search?query=${query}`);
-    return new Observable<Tutorial[]>(subscriber => {
-      let filteredTutorials = this.tutorial_cards.filter((e: any) => {
-        return e.title.toLowerCase().includes(query.toLowerCase())
-      })
-      if (filteredTutorials.length > 0) {
-        setTimeout(() => {
-          subscriber.next(filteredTutorials);
-        }, 1000);
-      } else {
-        setTimeout(() => {
-          subscriber.error('No tutorials in the DB.');
-        }, 1000);
-      }
-    })
+    return this.http.get<Tutorial[]>(`http://localhost:3000/recordings/search?query=${query}`);
+    
   }
 
   

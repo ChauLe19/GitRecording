@@ -65,21 +65,22 @@ export class RecordingService {
     return this.http.get<String>(`http://localhost:3000/recordings/checkout/gitID/commitID`);
   }
 
-  getRecording(repo: string): Observable<Recording> {
-    return new Observable<Recording>(subscriber => {
-      subscriber.next(this.recordings.find(recording=> recording.url == repo))
-    })
+  getRecording(recordingID: string): Observable<Recording> {
+    // return new Observable<Recording>(subscriber => {
+    //   subscriber.next(this.recordings.find(recording=> recording.url == recordingID))
+    // })
+    return this.http.get<Recording>(`http://localhost:3000/recordings/getrecording/${recordingID}`);
   }
-  getRepoTimestamp(repo: String): Observable<any> {
-    return this.http.get(`http://localhost:3000/recordings/timestamp/${repo}`);
-  }
-
-  getFileWithCommitID(repo: String, file: String, commitHash: String): Observable<any> {
-    return this.http.get(`http://localhost:3000/recordings/checkout/${repo}/${file}/${commitHash}`);
+  getRecordingTimestamp(recordingID: String): Observable<any> {
+    return this.http.get(`http://localhost:3000/recordings/timestamp/${recordingID}`);
   }
 
-  getAudioFile(repo: String): Observable<any> {
-    return this.http.get(`http://localhost:3000/recordings/audio/${repo}`);
+  getFileWithCommitID(recordingID: String, file: String, commitHash: String): Observable<any> {
+    return this.http.get(`http://localhost:3000/recordings/checkout/${recordingID}/${file}/${commitHash}`);
+  }
+
+  getAudioFile(recordingID: String): Observable<any> {
+    return this.http.get(`http://localhost:3000/recordings/getaudio/${recordingID}`);
   }
 
   getRepoFilesTree(repo: string): Observable<File[]> {

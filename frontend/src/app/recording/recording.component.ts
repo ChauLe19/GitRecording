@@ -29,10 +29,12 @@ export class RecordingComponent implements OnInit {
   title = '';
   code = `
   `;
+  url:string='';
   currentTheme: string = themeGithub;
   logs: Timestamp[] = [];
   prevIndex = 0;
   currentCommit:Timestamp=new Timestamp();
+  currentFile: string=''
   constructor(private hljsLoader: HighlightLoader, private recordingService: RecordingService, private route:ActivatedRoute) {
     this.dataSource.data = this.repository;
   }
@@ -46,12 +48,13 @@ export class RecordingComponent implements OnInit {
     //   this.dataSource.data = this.repository;
     // })
     // console.log("hi")
-    let url:string = this.route.snapshot.paramMap.get('file') || ''
-    this.recordingService.getRecording(url).subscribe((data:Recording)=>{
+    this.url = this.route.snapshot.paramMap.get('file') || ''
+    this.recordingService.getRecording(this.url).subscribe((data:Recording)=>{
       this.logs = data.timestamps;
       this.title = data.title;
       this.repository = data.filetree;
       this.dataSource.data = this.repository;
+      this.currentFile = this.repository[0].name;
     })
 
     // a = this.route.snapshot.paramMap.get('bank');
@@ -78,7 +81,7 @@ export class RecordingComponent implements OnInit {
     let nearestCommitIndex: number = this.getNearestCommitIndex(this.currentTime * 1000, this.prevIndex);
     if (nearestCommitIndex != this.prevIndex) {
       this.prevIndex = nearestCommitIndex;
-      this.recordingService.getFileWithCommitID("daf", "tutorial.js", this.logs[nearestCommitIndex].commitHash).subscribe(data => {
+      this.recordingService.getFileWithCommitID(this.url, this.currentFile, this.logs[nearestCommitIndex].commitHash).subscribe(data => {
         this.code = data
       })
     }

@@ -6,19 +6,19 @@ var path = require("path");
 var recordingService = require("../services/recording.service")
 const recordingsController = require("../controllers/recordings.controller")
 var fs = require('fs')
-    // import path from 'path'
-var serialize = require('node-serialize')
-    // const DIRECTORY = 'recordings';
+// import path from 'path'
+var serialize = require('node-serialize');
+// const DIRECTORY = 'recordings';
 
 const git = simpleGit("../../JSTutorial");
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
     let data = "";
     try {
         data = fs.readFileSync("recording.txt", 'utf8')
         console.log(__dirname)
-            // console.log(data)
+        // console.log(data)
     } catch (err) {
         console.error(err)
     }
@@ -41,10 +41,25 @@ router.get("/audio/:repo", (req, res) => {
     ms.pipe(req, res, "../../JSTutorial/JSTutorial.wav");
 })
 
+router.get("/getaudio/:recordingID", async (req, res) => {
+    try{
+
+        let recording = await recordingService.getRecording(req.params.recordingID)
+        ms.pipe(req, res, `../../${recording.localfolder}/JSTutorial.wav`); // TODO: Change JSTutorial.wav to audio.wav for convention
+    }catch(err){
+        res.json({err})
+    }
+})
+
 //Testing
 router.post("/addrecording", (req, res) => {
-    recordingService.addRecording(req.body).then((result) => res.json(result)).catch((e) => res.json(e))
+    recordingService.addRecording(req.body).then((result) => { console.log(result); res.json(result) }).catch((e) => res.json(e))
 })
+
+router.get("/getrecording/:recordingID", recordingsController.getRecording)
+router.get("/search", recordingsController.search)
+
+router.get("/getall", recordingsController.getAllTutorials)
 
 router.get("/checkout/:repo/:file/:commithash", recordingsController.getFileWithCommitID)
 router.get("/timestamp/:repo", recordingsController.getRepoTimestamp)
@@ -65,15 +80,15 @@ async function runLoopCommit() {
     // Start and write to the file.
     audioRecorder.start().stream().pipe(fileStream);
 
-    audioRecorder.stream().on('error', function() {
+    audioRecorder.stream().on('error', function () {
         console.warn('Recording error.');
     });
-    setTimeout(function() {
+    setTimeout(function () {
         audioRecorder.stop();
     }, 999999);
     const initial = new Date().getTime();
     setInterval(
-        async() => {
+        async () => {
             await git
                 .add("./*")
                 .commit("1")
@@ -86,7 +101,7 @@ async function runLoopCommit() {
                         data.push({ "commitHash": commitHash, timestamp: new Date().getTime() - initial })
                         try {
                             fs.writeFileSync('recording.txt', serialize.serialize(data))
-                                //file written successfully
+                            //file written successfully
                         } catch (err) {
                             console.error(err)
                         }
@@ -118,7 +133,7 @@ async function runGitCheckout() { // playback
     let data = ""
     try {
         data = fs.readFileSync('recording.txt', 'utf8')
-            // console.log(data)
+        // console.log(data)
     } catch (err) {
         console.error(err)
     }

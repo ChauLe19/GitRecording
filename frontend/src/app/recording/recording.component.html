@@ -36,7 +36,7 @@
     <vm-player style="position: relative;" id="bottom" autoplay controls [currentTime]="currentTime"
       (vmCurrentTimeChange)="onTimeUpdate($event)">
       <vm-audio cross-origin>
-        <source data-src="http://localhost:3000/recordings/audio/repo" type="audio/wav" />
+        <source data-src="http://localhost:3000/recordings/getaudio/{{this.url}}" type="audio/wav" />
       </vm-audio>
     </vm-player>
   </div>
