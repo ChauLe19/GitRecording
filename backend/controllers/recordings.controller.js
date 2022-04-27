@@ -10,12 +10,14 @@ async function getFileWithCommitID(req, res) {
     let recordingID = req.params.recordingID
     // git.show(`${commit}:${file}`).then(ressult => res.send({ body: result }))
     let recordingInfo = await recordingService.getRecording(recordingID); // TODO: maybe use local folder as params instead of recordingID
-    
+
     const git = simpleGit(`../../${recordingInfo.localfolder}`);
-    try{
-        git.show(`${commit}:${recording}`).then(result => res.json(result)).catch(err => res.json(""))
-    }catch(err){
-        res.status(400).json({err})
+    try {
+        let updatedFile = ''
+        git.diff([`${commit}^1`,commit, '--name-only'],(err,result)=> updatedFile = result.trim().split("\n"))
+        git.show(`${commit}:${recording}`).then(result => res.json({result, updatedFile})).catch(err => res.json({result:'', updatedFile}))
+    } catch (err) {
+        res.status(400).json({ err })
     }
 }
 

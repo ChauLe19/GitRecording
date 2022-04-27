@@ -35,6 +35,7 @@ export class RecordingComponent implements OnInit {
   prevIndex = 0;
   currentCommit: Timestamp = new Timestamp();
   currentFile: string = ''
+  updatedFile: string[] =[]
   constructor(private hljsLoader: HighlightLoader, private recordingService: RecordingService, private route: ActivatedRoute) {
     this.dataSource.data = this.repository;
   }
@@ -99,8 +100,10 @@ export class RecordingComponent implements OnInit {
     let nearestCommitIndex: number = this.getNearestCommitIndex(this.currentTime * 1000, this.prevIndex);
     if (nearestCommitIndex != this.prevIndex) {
       this.prevIndex = nearestCommitIndex;
+      // this.recordingService.getDiffFile()
       this.recordingService.getFileWithCommitID(this.url, this.currentFile, this.logs[nearestCommitIndex].commitHash).subscribe(data => {
-        this.code = data
+        this.code = data.result;
+        this.updatedFile = data.updatedFile
       })
     }
   }
@@ -147,7 +150,8 @@ export class RecordingComponent implements OnInit {
 
       this.prevIndex = nearestCommitIndex;
       this.recordingService.getFileWithCommitID(this.url, this.currentFile, this.logs[nearestCommitIndex].commitHash).subscribe(data => {
-        this.code = data
+        this.code = data.result
+        this.updatedFile = data.updatedFile
       })
     }
   }
