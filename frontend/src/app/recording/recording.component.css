@@ -56,7 +56,7 @@ code{
 }
 
 mat-tree-node:hover {
-  background-color: black;
+  background-color: #757575;
 }
 
 mat-tree-node {

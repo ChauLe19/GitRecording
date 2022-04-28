@@ -35,7 +35,7 @@ export class RecordingComponent implements OnInit {
   prevIndex = 0;
   currentCommit: Timestamp = new Timestamp();
   currentFile: string = ''
-  updatedFile: string[] =[]
+  updatedFile: string = ''
   constructor(private hljsLoader: HighlightLoader, private recordingService: RecordingService, private route: ActivatedRoute) {
     this.dataSource.data = this.repository;
   }
@@ -95,15 +95,60 @@ export class RecordingComponent implements OnInit {
     this.hljsLoader.setTheme(this.currentTheme);
   }
 
+  setHighlight(arr:File[]|undefined, strArr:string[], strIndx:number){
+    if(arr){
+      let indx = arr.findIndex(r => r.name === strArr[strIndx])
+
+      if(strIndx === strArr.length - 1){
+        arr[indx].isHighlighted = true;
+        // console.log(arr[indx].isHighlighted)
+        setTimeout(()=> {
+          arr[indx].isHighlighted = false;
+          // console.log(arr[indx].isHighlighted)
+        }, 200)
+
+        return;
+      }
+
+      this.setHighlight(arr[indx].subfolders, strArr, strIndx+1)
+    }
+
+
+  }
+
   onTimeUpdate(event: CustomEvent<number>) {
     this.currentTime = event.detail;
     let nearestCommitIndex: number = this.getNearestCommitIndex(this.currentTime * 1000, this.prevIndex);
     if (nearestCommitIndex != this.prevIndex) {
       this.prevIndex = nearestCommitIndex;
+
+
       // this.recordingService.getDiffFile()
       this.recordingService.getFileWithCommitID(this.url, this.currentFile, this.logs[nearestCommitIndex].commitHash).subscribe(data => {
         this.code = data.result;
-        this.updatedFile = data.updatedFile
+
+        // get current file name
+        let currFilename = this.logs[nearestCommitIndex].updatedFile
+
+        // simple / single file case
+        let index = this.repository.findIndex(r => {
+            return r.name === currFilename
+        });
+
+        // subfolders case
+        if(index === -1 && currFilename){
+          let names = currFilename.split('/')
+          this.setHighlight(this.repository, names, 0)
+        }
+
+        if(index != -1){
+          this.repository[index].isHighlighted = true;
+          // console.log(this.repository[index].isHighlighted)
+          setTimeout(()=> {
+            this.repository[index].isHighlighted = false;
+            // console.log(this.repository[index].isHighlighted)
+          }, 200)
+        }
       })
     }
   }
