@@ -25,7 +25,8 @@ const RecordingSchema = new mongoose.Schema({
         type: [{
             order: { type: Number },
             commitHash: { type: String },
-            timestamp: { type: Number }
+            timestamp: { type: Number },
+            updatedFile: { type: String }
         }]
     },
     localfolder: { type: String }

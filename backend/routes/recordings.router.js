@@ -38,8 +38,8 @@ router.get("/play/:recording", (req, res, next) => { // don't do this in project
 
 router.get("/getaudio/:recordingID", async (req, res) => {
     try{
-
         let recording = await recordingService.getRecording(req.params.recordingID)
+        console.log(recording)
         ms.pipe(req, res, `../../${recording.localfolder}/JSTutorial.wav`); // TODO: Change JSTutorial.wav to audio.wav for convention
     }catch(err){
         res.json({err})
@@ -48,6 +48,7 @@ router.get("/getaudio/:recordingID", async (req, res) => {
 
 //Testing
 router.post("/addrecording", (req, res) => {
+    console.log(req.body)
     recordingService.addRecording(req.body).then((result) => { console.log(result); res.json(result) }).catch((e) => res.json(e))
 })
 
