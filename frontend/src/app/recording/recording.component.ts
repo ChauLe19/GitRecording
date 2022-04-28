@@ -125,8 +125,8 @@ export class RecordingComponent implements OnInit {
 
       // this.recordingService.getDiffFile()
       this.recordingService.getFileWithCommitID(this.url, this.currentFile, this.logs[nearestCommitIndex].commitHash).subscribe(data => {
-        this.code = data.result;
-
+        this.code = data;
+        
         // get current file name
         let currFilename = this.logs[nearestCommitIndex].updatedFile
 
