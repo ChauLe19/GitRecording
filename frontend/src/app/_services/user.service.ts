@@ -34,7 +34,7 @@ export class UserService {
 
   deleteFavorite(/*url: string*/ tutorial: Tutorial): Observable<Tutorial[]> {  // parameter is supposed to be url, but we are using Tutorial for convenience
     // return this.http.get<String>(`http://localhost:3000/tutorial/search?query=${query}`);
-    
+
     return new Observable<Tutorial[]>(subscriber => {
       this.user.favorites = this.user.favorites?.filter((elem) => elem != tutorial)
       subscriber.next(this.user.favorites)

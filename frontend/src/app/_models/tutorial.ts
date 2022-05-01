@@ -1,6 +1,6 @@
 export class Tutorial {
     title!: string;
     image!: string;
-    url!: string;
+    _id!:string;
     description!: string;
 }

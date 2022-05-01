@@ -54,3 +54,12 @@
 code{
   white-space: pre;
 }
+
+mat-tree-node:hover {
+  background-color: #757575;
+}
+
+mat-tree-node {
+  transition: background-color 0.5s;
+  border-radius: 0.5rem;
+}
