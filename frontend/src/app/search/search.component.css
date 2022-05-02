@@ -14,7 +14,7 @@
   } */
   mat-card{
     display: block;
-    height: 40px;
+    height: fit-content;
   }
   .example-form {
     /* min-width: 150px;
