@@ -38,12 +38,12 @@ export class TutorialService {
     // return new Observable<Tutorial[]>(subscriber => {
     //   if (this.tutorial_cards.length > 0) {
     //     setTimeout(() => {
-    //       subscriber.next(this.tutorial_cards);
+   //       subscriber.next(this.tutorial_cards);
     //     }, 1000);
     //   } else {
     //     setTimeout(() => {
     //       subscriber.error('No tutorials in the DB.');
-    //     }, 1000);
+    //     }, 1000); 
     //   }
 
     // });

@@ -9,6 +9,8 @@
   display: flex;
   margin-bottom: 2px;
   min-height: 150px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
 }
 
 

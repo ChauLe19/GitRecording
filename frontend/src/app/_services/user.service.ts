@@ -24,9 +24,9 @@ export class UserService {
     // return this.http.get<String>(`http://localhost:3000/tutorial/search?query=${query}`);
 
     return new Observable<Tutorial[]>(subscriber => {
-      const found = this.user.favorites?.find(elem => elem == tutorial)
-      console.log(found)
+      const found = this.user.favorites?.find(elem => elem._id === tutorial._id)
       if (found) return;
+      console.log(this.user.favorites)
       this.user.favorites?.push(tutorial)
       subscriber.next(this.user.favorites)
     })

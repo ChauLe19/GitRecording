@@ -26,6 +26,7 @@ import { InfoComponent } from './info/info.component';
 import { SearchComponent } from './search/search.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS, } from '@angular/material/form-field';
+//import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 
 @NgModule({
   declarations: [

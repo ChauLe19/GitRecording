@@ -17,8 +17,8 @@ export class TutorialCardComponent implements OnInit {
   }
 
   addToFavorites(){
-    this.isFavorited = true;
-    this.userService.addFavorite(this.card).subscribe(()=>{})
+      this.isFavorited = true;
+      this.userService.addFavorite(this.card).subscribe(()=>{})  
   }
   
   removeFromFavorites(){
