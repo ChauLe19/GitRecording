@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
-/* .example-card {
+.example-card {
     max-width: 100%;
     margin-bottom: 8px;
     background-color: #616161;
-    color: #ffffff;
+    color: black;
   }
 
 mat-card-title {
-  color: #ffffff;
-} */
+  color: black;
+}
 
   /*img {*/
   /*  max-width: 100%;*/
@@ -16,12 +16,12 @@ mat-card-title {
   /*  height: 100px;*/
   /*  width: 100px;*/
   /* }*/
-  /* .info-content {
+  .info-content {
     font-size: 1.5em;
     font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
-  } */
+  }
   
-  img {
+  /* img {
     float: right;
     width:200px;
     height:200px;
@@ -44,4 +44,4 @@ mat-card-title {
     text-align: center;
     font-family: 'Roboto Mono', monospace;
     font-weight: bold;
-  }
+  } */
