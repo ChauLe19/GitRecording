@@ -2,12 +2,26 @@
 .example-card {
     max-width: 100%;
     margin-bottom: 8px;
-    background-color: #616161;
-    color: black;
+    /* background-color: #616161; */
+    /* color: black; */
   }
 
+
+
+.background{
+  height: calc(-64px + 100vh);  
+  color:white; 
+  display: flex; 
+  align-items: center;
+  position: fixed; 
+  width: 100%;
+  z-index: -1;
+  filter: blur(0.25rem);
+  background-image:url('https://user-images.githubusercontent.com/820748/42511792-26368ae8-8453-11e8-921d-ae1d573f97c8.png');
+  transform: scale(1.1);
+}
+
 mat-card-title {
-  color: black;
 }
 
   /*img {*/
@@ -17,8 +31,7 @@ mat-card-title {
   /*  width: 100px;*/
   /* }*/
   .info-content {
-    font-size: 1.5em;
-    font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+    font: 400 1.25rem Roboto, "Helvetica Neue", sans-serif;
   }
   
   /* img {

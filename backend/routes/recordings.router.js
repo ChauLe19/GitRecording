@@ -40,7 +40,7 @@ router.get("/getaudio/:recordingID", async (req, res) => {
     try{
         let recording = await recordingService.getRecording(req.params.recordingID)
         console.log(recording)
-        ms.pipe(req, res, `../../${recording.localfolder}/JSTutorial.wav`); // TODO: Change JSTutorial.wav to audio.wav for convention
+        ms.pipe(req, res, `../../${recording.localfolder}/audio.wav`); // TODO: Change JSTutorial.wav to audio.wav for convention
     }catch(err){
         res.json({err})
     }
