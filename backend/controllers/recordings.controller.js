@@ -1,8 +1,24 @@
 var fs = require('fs')
 var serialize = require('node-serialize')
-
+const ms = require("mediaserver")
 const simpleGit = require("simple-git");
 const recordingService = require("../services/recording.service")
+
+
+async function getAudio(req, res){
+    try{
+        let recording = await recordingService.getRecording(req.params.recordingID)
+        console.log(recording)
+        ms.pipe(req, res, `../../${recording.localfolder}/audio.wav`);
+    }catch(err){
+        res.json({err})
+    }
+}
+
+function addRecording(req, res) {
+    console.log(req.body)
+    recordingService.addRecording(req.body).then((result) => { console.log(result); res.json(result) }).catch((e) => res.json(e))
+}
 
 async function getFileWithCommitID(req, res) {
     let commit = req.params.commithash
@@ -58,5 +74,7 @@ module.exports = {
     getRepoTimestamp,
     getRecording,
     getAllTutorials,
-    search
+    search,
+    getAudio,
+    addRecording
 }

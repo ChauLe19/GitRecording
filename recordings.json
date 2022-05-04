@@ -1,0 +1,884 @@
+[{
+  "_id": {
+    "$oid": "6272f1114700b1a221994b28"
+  },
+  "title": "Write a Hello World program in Python",
+  "description": "This tutorial teaches you how to write a simple Hello World program in Python. A very basic program that every programmer should know how to write.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
+  "filetree": [
+    {
+      "_id": {
+        "$oid": "6272f1114700b1a221994b29"
+      },
+      "name": "main.py",
+      "subfolders": []
+    }
+  ],
+  "timestamps": [
+    {
+      "commitHash": "4c02e0c",
+      "timestamp": 5958,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b2a"
+      }
+    },
+    {
+      "commitHash": "22e7a75",
+      "timestamp": 6825,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b2b"
+      }
+    },
+    {
+      "commitHash": "728523b",
+      "timestamp": 8560,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b2c"
+      }
+    },
+    {
+      "commitHash": "90954ad",
+      "timestamp": 9892,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b2d"
+      }
+    },
+    {
+      "commitHash": "2b868ba",
+      "timestamp": 14090,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b2e"
+      }
+    },
+    {
+      "commitHash": "5a7e3fb",
+      "timestamp": 14698,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b2f"
+      }
+    },
+    {
+      "commitHash": "786c6b1",
+      "timestamp": 17588,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b30"
+      }
+    },
+    {
+      "commitHash": "36ee8d1",
+      "timestamp": 19231,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b31"
+      }
+    },
+    {
+      "commitHash": "1d059f0",
+      "timestamp": 19839,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b32"
+      }
+    },
+    {
+      "commitHash": "0b8d339",
+      "timestamp": 21347,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b33"
+      }
+    },
+    {
+      "commitHash": "630d388",
+      "timestamp": 27131,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b34"
+      }
+    },
+    {
+      "commitHash": "2cafe4a",
+      "timestamp": 28463,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b35"
+      }
+    },
+    {
+      "commitHash": "c817a88",
+      "timestamp": 29198,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b36"
+      }
+    },
+    {
+      "commitHash": "cb06d1d",
+      "timestamp": 29833,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b37"
+      }
+    },
+    {
+      "commitHash": "bb0806f",
+      "timestamp": 30459,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b38"
+      }
+    },
+    {
+      "commitHash": "8fcb4b7",
+      "timestamp": 31498,
+      "updatedFile": "main.py",
+      "_id": {
+        "$oid": "6272f1114700b1a221994b39"
+      }
+    }
+  ],
+  "localfolder": "PythonHelloWorld",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6272f2ae4700b1a221994b66"
+  },
+  "title": "Importing in JS",
+  "description": "This is a tutorial over importing and exporting in JavaScript. We'll learn how to modulize your project in this tutorial.",
+  "image": "https://btechgeeks.com/wp-content/uploads/2021/07/C-Program-to-Calculate-Area-and-Perimeter-of-a-Square.png",
+  "filetree": [
+    {
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b67"
+      },
+      "name": "index.js",
+      "subfolders": []
+    },
+    {
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b68"
+      },
+      "name": "utils",
+      "subfolders": [
+        {
+          "_id": {
+            "$oid": "6272f2ae4700b1a221994b69"
+          },
+          "name": "util.js",
+          "subfolders": []
+        }
+      ]
+    }
+  ],
+  "timestamps": [
+    {
+      "commitHash": "2ed76f7",
+      "timestamp": 9918,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b6a"
+      }
+    },
+    {
+      "commitHash": "0df4618",
+      "timestamp": 11068,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b6b"
+      }
+    },
+    {
+      "commitHash": "08a16da",
+      "timestamp": 16876,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b6c"
+      }
+    },
+    {
+      "commitHash": "96bac2c",
+      "timestamp": 17577,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b6d"
+      }
+    },
+    {
+      "commitHash": "ae760a4",
+      "timestamp": 18363,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b6e"
+      }
+    },
+    {
+      "commitHash": "fb40208",
+      "timestamp": 19603,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b6f"
+      }
+    },
+    {
+      "commitHash": "8cf01fe",
+      "timestamp": 21016,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b70"
+      }
+    },
+    {
+      "commitHash": "e5ce1da",
+      "timestamp": 21864,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b71"
+      }
+    },
+    {
+      "commitHash": "657ca6c",
+      "timestamp": 22252,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b72"
+      }
+    },
+    {
+      "commitHash": "f62f2f5",
+      "timestamp": 22563,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b73"
+      }
+    },
+    {
+      "commitHash": "f74a06a",
+      "timestamp": 23044,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b74"
+      }
+    },
+    {
+      "commitHash": "a43ca2e",
+      "timestamp": 23398,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b75"
+      }
+    },
+    {
+      "commitHash": "c250a50",
+      "timestamp": 25958,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b76"
+      }
+    },
+    {
+      "commitHash": "597c369",
+      "timestamp": 27149,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b77"
+      }
+    },
+    {
+      "commitHash": "b338dbc",
+      "timestamp": 28810,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b78"
+      }
+    },
+    {
+      "commitHash": "f37891a",
+      "timestamp": 30738,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b79"
+      }
+    },
+    {
+      "commitHash": "91ee552",
+      "timestamp": 32797,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b7a"
+      }
+    },
+    {
+      "commitHash": "74991e0",
+      "timestamp": 37203,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b7b"
+      }
+    },
+    {
+      "commitHash": "3455a6c",
+      "timestamp": 40362,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b7c"
+      }
+    },
+    {
+      "commitHash": "616ca9b",
+      "timestamp": 40782,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b7d"
+      }
+    },
+    {
+      "commitHash": "cd1aa89",
+      "timestamp": 41191,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b7e"
+      }
+    },
+    {
+      "commitHash": "f824d65",
+      "timestamp": 41633,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b7f"
+      }
+    },
+    {
+      "commitHash": "1207e0b",
+      "timestamp": 42728,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b80"
+      }
+    },
+    {
+      "commitHash": "c4d5e7b",
+      "timestamp": 45852,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b81"
+      }
+    },
+    {
+      "commitHash": "4c27cd1",
+      "timestamp": 46660,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b82"
+      }
+    },
+    {
+      "commitHash": "ac062ab",
+      "timestamp": 47170,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b83"
+      }
+    },
+    {
+      "commitHash": "b6df546",
+      "timestamp": 48746,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b84"
+      }
+    },
+    {
+      "commitHash": "3d3d2d7",
+      "timestamp": 50916,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b85"
+      }
+    },
+    {
+      "commitHash": "2ec6be9",
+      "timestamp": 52517,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b86"
+      }
+    },
+    {
+      "commitHash": "b8b931a",
+      "timestamp": 53347,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b87"
+      }
+    },
+    {
+      "commitHash": "991a671",
+      "timestamp": 54115,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b88"
+      }
+    },
+    {
+      "commitHash": "275d18a",
+      "timestamp": 55071,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b89"
+      }
+    },
+    {
+      "commitHash": "9e40cf6",
+      "timestamp": 56369,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b8a"
+      }
+    },
+    {
+      "commitHash": "a30ee00",
+      "timestamp": 59144,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b8b"
+      }
+    },
+    {
+      "commitHash": "a4645eb",
+      "timestamp": 59550,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b8c"
+      }
+    },
+    {
+      "commitHash": "5c55b83",
+      "timestamp": 60824,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b8d"
+      }
+    },
+    {
+      "commitHash": "0e23000",
+      "timestamp": 60963,
+      "updatedFile": "utils/util.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b8e"
+      }
+    },
+    {
+      "commitHash": "7612ce5",
+      "timestamp": 65964,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b8f"
+      }
+    },
+    {
+      "commitHash": "f5af3bd",
+      "timestamp": 71021,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b90"
+      }
+    },
+    {
+      "commitHash": "49f5c43",
+      "timestamp": 71803,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b91"
+      }
+    },
+    {
+      "commitHash": "84c2d87",
+      "timestamp": 73705,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b92"
+      }
+    },
+    {
+      "commitHash": "2783f6f",
+      "timestamp": 74316,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b93"
+      }
+    },
+    {
+      "commitHash": "9042648",
+      "timestamp": 75312,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b94"
+      }
+    },
+    {
+      "commitHash": "06549c9",
+      "timestamp": 75773,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b95"
+      }
+    },
+    {
+      "commitHash": "e328713",
+      "timestamp": 77062,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b96"
+      }
+    },
+    {
+      "commitHash": "09e5f5d",
+      "timestamp": 77951,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b97"
+      }
+    },
+    {
+      "commitHash": "488f8d0",
+      "timestamp": 78939,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b98"
+      }
+    },
+    {
+      "commitHash": "8d4302f",
+      "timestamp": 79138,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b99"
+      }
+    },
+    {
+      "commitHash": "95b96fb",
+      "timestamp": 81893,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b9a"
+      }
+    },
+    {
+      "commitHash": "a1298e1",
+      "timestamp": 82552,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b9b"
+      }
+    },
+    {
+      "commitHash": "7acf017",
+      "timestamp": 83400,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b9c"
+      }
+    },
+    {
+      "commitHash": "b06bc78",
+      "timestamp": 86049,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f2ae4700b1a221994b9d"
+      }
+    }
+  ],
+  "localfolder": "ImportTutorial",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6272f4cba51f518e66da9c90"
+  },
+  "title": "For loop in JS",
+  "description": "Using a for loop in JS. For loops are used to repeat an instruction a specific amount of times. No needs to copy-paste anymore.",
+  "image": "https://www.computerhope.com/jargon/j/javascript.png",
+  "filetree": [
+    {
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c91"
+      },
+      "name": "index.js",
+      "subfolders": []
+    }
+  ],
+  "timestamps": [
+    {
+      "commitHash": "8959520",
+      "timestamp": 5623,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c92"
+      }
+    },
+    {
+      "commitHash": "c8aed51",
+      "timestamp": 6021,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c93"
+      }
+    },
+    {
+      "commitHash": "06fad23",
+      "timestamp": 7091,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c94"
+      }
+    },
+    {
+      "commitHash": "0951321",
+      "timestamp": 7722,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c95"
+      }
+    },
+    {
+      "commitHash": "8a6ef9b",
+      "timestamp": 8274,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c96"
+      }
+    },
+    {
+      "commitHash": "3b4c808",
+      "timestamp": 9074,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c97"
+      }
+    },
+    {
+      "commitHash": "1096f52",
+      "timestamp": 10368,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c98"
+      }
+    },
+    {
+      "commitHash": "1cac910",
+      "timestamp": 11054,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c99"
+      }
+    },
+    {
+      "commitHash": "c12b2ad",
+      "timestamp": 12034,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c9a"
+      }
+    },
+    {
+      "commitHash": "ca82adc",
+      "timestamp": 13184,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c9b"
+      }
+    },
+    {
+      "commitHash": "0f1433f",
+      "timestamp": 13732,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c9c"
+      }
+    },
+    {
+      "commitHash": "01adc9c",
+      "timestamp": 14990,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c9d"
+      }
+    },
+    {
+      "commitHash": "9bf608b",
+      "timestamp": 15603,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c9e"
+      }
+    },
+    {
+      "commitHash": "528eb3d",
+      "timestamp": 16154,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9c9f"
+      }
+    },
+    {
+      "commitHash": "c7a5482",
+      "timestamp": 16838,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9ca0"
+      }
+    },
+    {
+      "commitHash": "6d5c583",
+      "timestamp": 17644,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9ca1"
+      }
+    },
+    {
+      "commitHash": "6cf683c",
+      "timestamp": 18636,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9ca2"
+      }
+    },
+    {
+      "commitHash": "0cd0ec5",
+      "timestamp": 19031,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9ca3"
+      }
+    },
+    {
+      "commitHash": "90cf3d4",
+      "timestamp": 19914,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9ca4"
+      }
+    },
+    {
+      "commitHash": "cd5d21d",
+      "timestamp": 21090,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9ca5"
+      }
+    },
+    {
+      "commitHash": "55db51f",
+      "timestamp": 21616,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9ca6"
+      }
+    },
+    {
+      "commitHash": "b10a2c0",
+      "timestamp": 23005,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9ca7"
+      }
+    },
+    {
+      "commitHash": "d25b330",
+      "timestamp": 29141,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9ca8"
+      }
+    },
+    {
+      "commitHash": "c8c2ec2",
+      "timestamp": 31897,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9ca9"
+      }
+    },
+    {
+      "commitHash": "0c68369",
+      "timestamp": 32140,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9caa"
+      }
+    },
+    {
+      "commitHash": "35de865",
+      "timestamp": 33117,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9cab"
+      }
+    },
+    {
+      "commitHash": "4dda50c",
+      "timestamp": 33715,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9cac"
+      }
+    },
+    {
+      "commitHash": "121e372",
+      "timestamp": 34123,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9cad"
+      }
+    },
+    {
+      "commitHash": "225e51d",
+      "timestamp": 34696,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9cae"
+      }
+    },
+    {
+      "commitHash": "0e9437b",
+      "timestamp": 35104,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9caf"
+      }
+    },
+    {
+      "commitHash": "fb5fff3",
+      "timestamp": 37466,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9cb0"
+      }
+    },
+    {
+      "commitHash": "819826e",
+      "timestamp": 39088,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9cb1"
+      }
+    },
+    {
+      "commitHash": "990103e",
+      "timestamp": 39675,
+      "updatedFile": "index.js",
+      "_id": {
+        "$oid": "6272f4cba51f518e66da9cb2"
+      }
+    }
+  ],
+  "localfolder": "ForLoopInJS",
+  "__v": 0
+}]
